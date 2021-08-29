@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+    <body>
+        <main>
+            <div>
+              <form novalidate name="frmAdd">
+              <div class="body">
+                <div class="header"><h3>Địa chỉ nhận hàng</h3></div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label >Purchaser:</label>
+                    <div  class="form-control" id="username" >[[${#request.remoteUser}]]</div>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label >Order Date</label>
+                    <div class="form-control">{{order.createDate | date: 'dd-MM-yyyy'}}</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label >Shipping Address</label>
+                  <textarea class="form-control" ng-model="order.address" required name="address"></textarea>
+                  <span ng-show="frmAdd.address.$invalid" class="has-error">Nhập địa chỉ nhận hàng
+                    </span>
+                </div>
+                
+                <button ng-click="order.purchase()" class="btn btn-primary text-right">Đặt hàng</button>
+              </div>
+            </form>
+              <div class="container mt-5">
+                <div id="carousel">
+                    <figure><img th:src="@{/images/dienthoai1.jpg}"></figure>
+                    <figure><img th:src="@{/images/dienthoai4.jpg}"></figure>
+                    <figure><img th:src="@{/images/dienthoai2.jpg}"></figure>
+                    <figure><img th:src="@{/images/dienthoai5.jpg}"></figure>
+                    <figure><img th:src="@{/images/dienthoai6.jpg}"></figure>
+                    <figure><img th:src="@{/images/dienthoai7.jpg}"></figure>
+                    <figure><img th:src="@{/images/dienthoai8.jpg}"></figure>
+                    <figure><img th:src="@{/images/tivi3.jpg}"></figure>
+                    <figure><img th:src="@{/images/tivi1.jpg}"></figure>
+                </div>
+            </div>
+              </div>
+        </main>
+    </body>
+</html>

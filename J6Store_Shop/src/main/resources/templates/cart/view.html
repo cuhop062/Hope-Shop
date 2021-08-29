@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+<body>
+    <main>
+        <div class="pb-5 mt-3">
+            <div class="row">
+                <div class="p-5 bg-white rounded shadow-sm mb-5">
+                    <h2 class="panel-heading text-center text-warning">GIỎ HÀNG CỦA BẠN</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="border-0 bg-light">
+                                    <div class="p-2 px-3 text-uppercase">Mã</div>
+                                </th>
+                                <th scope="col" class="border-0 bg-light">
+                                    <div class="p-2 px-3 text-uppercase">Tên sản phẩm</div>
+                                </th>
+                                <th scope="col" class="border-0 bg-light">
+                                    <div class="py-2 text-uppercase">Giá</div>
+                                </th>
+                                <th scope="col" class="border-0 bg-light">
+                                    <div class="py-2 text-uppercase">Số lượng</div>
+                                </th>
+                                <th scope="col" class="border-0 bg-light">
+                                    <div class="py-2 text-uppercase">Thành tiền</div>
+                                </th>
+                                <th scope="col" class="border-0 bg-light">
+                                    <div class="py-2 text-uppercase"></div>
+                                </th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in cart.items">
+                                <th scope="row" class="item text-center"><strong>{{item.id}}</strong></th>
+                                <td class="item  text-primary"><div><a href="">
+                                    <h5>{{item.name}}</h5></a>
+                                        </div>
+                                </td>
+                                <td><strong>{{item.price | number : 0}} VND</strong></td>
+                                <td><input class="item text-center" type="number" ng-change="cart.saveToLocalStorage()" ng-model="item.qty"
+                                        min="1" style="width: 70px;"></td>
+                                <td><strong>{{item.qty*item.price | number : 0}} VND</strong></td>
+                                <td><button ng-click="cart.remove(item.id)" class="btn text-dark"><i
+                                            class="fa fa-trash"></i></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="input-group-append border-0">
+                        <button ng-click="cart.clear()" type="button" class="btn btn-dark px-4 rounded-pill"><i
+                                class="fa fa-trash"></i>..Clear All</button>
+                        
+                        <a  class="btn btn-dark px-4 rounded-pill"  th:href="@{/order/checkout}"><i
+                                class="fa fa-gift mr-2"></i>..Check out</a>
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-5">
+                <div id="carousel">
+                    <figure><img th:src="@{/images/dienthoai1.jpg}"></figure>
+                    <figure><img th:src="@{/images/dienthoai4.jpg}"></figure>
+                    <figure><img th:src="@{/images/dienthoai2.jpg}"></figure>
+                    <figure><img th:src="@{/images/dienthoai5.jpg}"></figure>
+                    <figure><img th:src="@{/images/dienthoai6.jpg}"></figure>
+                    <figure><img th:src="@{/images/dienthoai7.jpg}"></figure>
+                    <figure><img th:src="@{/images/dienthoai8.jpg}"></figure>
+                    <figure><img th:src="@{/images/tivi3.jpg}"></figure>
+                    <figure><img th:src="@{/images/tivi1.jpg}"></figure>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

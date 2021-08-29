@@ -1,0 +1,38 @@
+<div class="container rounded bg-white mt-5">
+    <form name="frmAddCategory" novalidate role="form">
+    <div class="row">
+        
+        <div class="col border-right">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h6 class="text-right" style="font-variant: small-caps;">Quản lý Danh mục</h6>
+            </div>
+            <div class="col">
+                <div class="p-3 py-5">
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <div>ID</div><input ng-model="form.id" required id="id" name="id" maxlength="10" type="text" class="form-control"
+                                placeholder="Nhập Id">
+                                <span ng-show="frmAddCategory.id.$invalid" class="has-error">Phải nhập Id danh mục
+                                    </span>
+                        </div>
+                        <div class="col-md-6">
+                            <div>Tên danh mục</div><input type="text" required name="name" maxlength="30" ng-model="form.name" id="id" class="form-control"
+                                placeholder="Tên danh mục">
+                                <span ng-show="frmAddCategory.name.$invalid" class="has-error">Phải nhập tên danh mục
+                                </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+</div>
+</form>
+    <div class="panel-footer mt-5 text-right">
+        <button class="btn btn-primary profile-button" ng-click="create()" ng-disabled="frmAddCategory.$invalid" type="button">Lưu</button>
+        <button class="btn btn-success profile-button"ng-click="update()" type="button">Sửa</button>
+        <button class="btn btn-danger profile-button" ng-click="delete(form)" type="button">Xóa</button>
+        <button class="btn btn-info profile-button" ng-click="reset()" type="button">Reset</button>
+      </div>
+    
+</div>

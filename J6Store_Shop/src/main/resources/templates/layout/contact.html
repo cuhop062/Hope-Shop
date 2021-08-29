@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+<body>
+    <main>
+        <div id="contact-page" class="container">
+            <div class="bg">
+                <div class="row mt-3">
+                    <div class="col-sm-12">
+                        <h2 class="title text-center">Liên hệ <strong>A Hộp</strong></h2>
+                        <div  class="contact-map text-center">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5813.844940992353!2d107.93725960792626!3d14.374913450314288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x316bf9244614fcc5%3A0x86a1b186e63c3a8d!2zTmjDoCBUaOG7nSBHacOhbyBY4bupIE3Eg25nIExh!5e1!3m2!1svi!2s!4v1629425515762!5m2!1svi!2s"
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-sm-8">
+                        <div class="contact-form">
+                            <h2 class="title text-center">Thông tin của bạn</h2>
+                            <div class="status alert alert-success" style="display: none"></div>
+                            <form id="main-contact-form" class="contact-form row" th:action="@{/layout/contact/send}" name="contact-form" method="post">
+                                <div class="form-group col-md-6">
+                                    <input type="email" name="from" class="form-control" required="required"
+                                        placeholder="Your Email">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="email" name="to" class="form-control" required="required"
+                                        placeholder="Email">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <input type="text" name="subject" class="form-control" required="required"
+                                        placeholder="Subject">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <textarea name="body" id="body" required="required" class="form-control"
+                                        rows="8" placeholder="Your body Here"></textarea>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <span th:text="${message}"></span>
+                                    <input type="submit" name="submit" class="btn btn-primary pull-right"
+                                        value="Submit">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="contact-info">
+                            <h2 class="title text-center">Thông tin liên hệ như thế nào</h2>
+                            <address>
+                                <p>E-Shopper Inc.</p>
+                                <p>935 W. Webster Ave New Streets Chicago, IL 60614, NY</p>
+                                <p>Newyork USA</p>
+                                <p>Mobile: +2346 17 38 93</p>
+                                <p>Fax: 1-714-252-0026</p>
+                                <p>Email: info@e-shopper.com</p>
+                            </address>
+                            <div class="social-networks">
+                                <h2 class="title text-center">Social Networking</h2>
+                                <ul>
+                                    <li>
+                                        <a href="#"><i class="fab fa-facebook"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fab fa-google-plus"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fab fa-youtube"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-3">
+            <div id="carousel">
+                <figure><img th:src="@{/images/dienthoai1.jpg}"></figure>
+                <figure><img th:src="@{/images/dienthoai4.jpg}"></figure>
+                <figure><img th:src="@{/images/dienthoai2.jpg}"></figure>
+                <figure><img th:src="@{/images/dienthoai5.jpg}"></figure>
+                <figure><img th:src="@{/images/dienthoai6.jpg}"></figure>
+                <figure><img th:src="@{/images/dienthoai7.jpg}"></figure>
+                <figure><img th:src="@{/images/dienthoai8.jpg}"></figure>
+                <figure><img th:src="@{/images/tivi3.jpg}"></figure>
+                <figure><img th:src="@{/images/tivi1.jpg}"></figure>
+            </div>
+        </div>
+        </div>
+        <!--/#contact-page-->
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<div class="panel panel-default" ng-if="items">
+    <div class="panel-heading">DANH SÁCH SẢN PHẨM</div>
+    <table class="table table-hover">
+        <thead class="bg-info" style="font-variant: small-caps;">  
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">TÊN</th>
+            <th scope="col">Giá</th>
+            <th scope="col">Số lượng</th>
+            <th scope="col">Ngày</th>
+            <th scope="col">Hình</th>
+            <th scope="col">Category</th>
+            <th scope="col">Available</th>
+            <th scope="col">Mô tả</th>
+            <th scope="col"></th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in pager.items">
+            <th scope="row">{{item.id}}</th>
+            <td>{{item.name}}</td>
+            <td>{{item.price | number : 0}}</td>
+            <td>{{item.quantity | number : 0}}</td>
+            <td>{{item.createDate | date: 'dd-MM-yyyy'}}</td>
+            <td> <img width="50" src="{{'/assets/images/' + item.image}}"> 
+               </td>
+            <td>{{item.category.name}}</td>
+            <td>{{item.available?'Yes':'No'}}</td>
+            <td>{{item.description}}</td>
+            <td>
+                <div class="btn-group btn-group-xs">
+                    <button ng-click="edit(item)" class="btn btn-warning"><i class="far fa-edit"></i></button>
+                    <button ng-click="delete(item)" class="btn btn-danger"><i class="fab fa-accessible-icon"></i></button>
+                    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <div class="panel-footer text-center">
+          <button ng-click="pager.first()" class="btn btn-danger">
+            <i class="fas fa-hand-point-up"></i>
+          </button>
+          <button ng-click="pager.prev()" class="btn btn-success">
+            <i class="fas fa-hand-point-left"></i>
+          </button>
+          <button class="btn btn-success">
+            {{pager.page + 1}} of {{pager.count}}
+          </button>
+          <button ng-click="pager.next()" class="btn btn-success">
+            <i class="fas fa-hand-point-right"></i>
+          </button>
+          <button ng-click="pager.last()" class="btn btn-success">
+            <i class="far fa-hand-point-down"></i>
+          </button>
+      </div>
+</div>

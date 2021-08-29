@@ -1,0 +1,65 @@
+<div xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index :: dynamic(~{::main})}">
+    <main>
+        <form th:action="@{/security/login}" method="post">
+            <div class="card card0 border-0 mt-3">
+                <div class="row d-flex">
+                    <div class="col">
+                        <div class="card2 card border-0 px-4 py-5">
+                            <div class="row mb-4 px-3">
+                                <h6 class="mb-0 mr-4 mt-2">Sign in with</h6>
+                                <a class="facebook text-center mr-3" 
+                                 th:href="@{/oauth2/authorization/facebook}">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                                <a class="twitter text-center mr-3">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a class="linkedin text-center mr-3" th:href="@{/oauth2/authorization/google}">
+                                    <i class="fab fa-google"></i>
+                                </a>
+                            </div>
+                            <div class="row px-3 mb-4">
+                                <div class="line"></div> <small class="or text-center">Or</small>
+                                <div class="line"></div>
+                            </div>
+                            <div class="row px-3"> <label class="mb-1">
+                                    <h6 class="mb-0 text-sm">Username</h6>
+                                </label> <input class="mb-4" type="text" name="username"
+                                    placeholder="Enter a valid username"> </div>
+                            <div class="row px-3"> <label class="mb-1">
+                                    <h6 class="mb-0 text-sm">Password</h6>
+                                </label> <input type="password" name="password" placeholder="Enter password"> </div>
+                            <div class="row px-3 mb-4 mt-2">
+                                <div class="custom-control custom-checkbox custom-control-inline"> 
+                                    <label  class="custom-control-label text-sm">Remember me</label>
+                                    <input type="checkbox" name="remember-me" class="custom-control-input">
+                                         
+                                     </div> <a
+                                    href="#" class="ml-auto mb-0 text-sm">Forgot Password?</a>
+                            </div>
+                            <div class="row mb-3 px-3"><i
+                                class="pull-left" th:text="${message}"></i> <button type="submit"
+                                    class="btn btn-blue text-center">Login</button> </div>
+                            <div class="row mb-4 px-3"> <small class="font-weight-bold">Don't have an account? <a th:href="@{/security/register}"
+                                        class="text-danger ">Register</a></small> </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="container mt-5">
+                <div id="carousel">
+                    <figure><img th:src="@{/images/dienthoai1.jpg}"></figure>
+                    <figure><img th:src="@{/images/dienthoai4.jpg}"></figure>
+                    <figure><img th:src="@{/images/dienthoai2.jpg}"></figure>
+                    <figure><img th:src="@{/images/dienthoai5.jpg}"></figure>
+                    <figure><img th:src="@{/images/dienthoai6.jpg}"></figure>
+                    <figure><img th:src="@{/images/dienthoai7.jpg}"></figure>
+                    <figure><img th:src="@{/images/dienthoai8.jpg}"></figure>
+                    <figure><img th:src="@{/images/tivi3.jpg}"></figure>
+                    <figure><img th:src="@{/images/tivi1.jpg}"></figure>
+                </div>
+            </div>
+        </form>
+    </main>
+</div>

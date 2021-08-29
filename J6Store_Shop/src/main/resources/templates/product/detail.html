@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+<body>
+    <main th:object="${item}" class="item-detail mt-3">
+        <div class="container details mt-5 mb-5 d-flex justify-content-center align-items-center">
+            <div class="card listdetails">
+                <div class="inner-card"> <img th:src="@{|/assets/images/*{image}}" class="img-fluid rounded">
+                    <div class="d-flex justify-content-between align-items-center mt-3 px-2">
+                        <h4 th:text="*{name}"></h4> <span class="heart"><i class="fa fa-heart"></i></span>
+                    </div>
+                    <div class="mt-2 px-2"> <span th:text="*{createDate}"></span> </div>
+                    <div class="mt-2 px-2">Loại Hàng: <strong><span  th:text="*{category.name}"></span></strong> </div>
+                    <div class="px-2">
+                       <strong style="color: darkorange;">Giá:  <h3 th:text="*{#numbers.formatDecimal(price, 0, 'COMMA', 0, 'POINT')}"> </h3></strong>
+                    </div>
+                    <div class="px-2">
+                        <span>Mô tả sản phẩm</span>
+                        <h3 th:text="*{description}"></h3>
+                    </div>
+                    <div class="px-2 mt-3"> <button th:href="@{/order/checkout}" class="btn btn-primary px-3">Buy Now</button> 
+                        <button th:attr="ng-click=@{|cart.add(*{id})|}"
+                            class="btn btn-outline-primary px-3">Add to cart</button> </div>
+                </div>
+            </div>
+            <br><br>
+            <div class="row ml-5">
+                <div class="panel panel-primary">
+                    <h2 class="panel-heading" style="font-variant: small-caps; color: cornflowerblue;"> SẢN PHẨM CÙNG LOẠI</h2>
+                    <div class="card">
+                    <div class="panel-body">
+                        <ul>
+                            <li th:each="p: *{category.products}">
+                                <a th:href="@{|/product/detail/${p.id}}" th:text="${p.name}"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-5">
+            <div id="carousel">
+                <figure><img th:src="@{/images/dienthoai1.jpg}"></figure>
+                <figure><img th:src="@{/images/dienthoai4.jpg}"></figure>
+                <figure><img th:src="@{/images/dienthoai2.jpg}"></figure>
+                <figure><img th:src="@{/images/dienthoai5.jpg}"></figure>
+                <figure><img th:src="@{/images/dienthoai6.jpg}"></figure>
+                <figure><img th:src="@{/images/dienthoai7.jpg}"></figure>
+                <figure><img th:src="@{/images/dienthoai8.jpg}"></figure>
+                <figure><img th:src="@{/images/tivi3.jpg}"></figure>
+                <figure><img th:src="@{/images/tivi1.jpg}"></figure>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

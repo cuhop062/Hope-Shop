@@ -1,0 +1,51 @@
+<div xmlns:th="http://www.thymeleaf.org">
+    <div class="left-sidebar mt-5">
+        <h2>Danh mục</h2>
+        <div class="panel-group category-products">
+            <!--category-productsr-->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title" th:each="c : ${cates}">
+                        <a th:href="@{|/product/list/searchpaginated?cid=${c.id}|}">[[${c.name}]]</a>
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <!--/category-products-->
+
+        <div class="brands_products">
+            <!--brands_products-->
+            <h2>Brands</h2>
+            <div class="brands-name">
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a href="#"> <span class="pull-right">(50)</span>Điện thoại</a></li>
+                    <li><a href="#"> <span class="pull-right">(56)</span>Mũ thời trang</a></li>
+                    <li><a href="#"> <span class="pull-right">(27)</span>Bộ nhớ</a></li>
+                    <li><a href="#"> <span class="pull-right">(32)</span>TIVI </a></li>
+                    <li><a href="#"> <span class="pull-right">(5)</span>Giày,dép</a></li>
+                    <li><a href="#"> <span class="pull-right">(9)</span>Máy ảnh</a></li>
+                    <li><a href="#"> <span class="pull-right">(4)</span>Trang sức nữ</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--/brands_products-->
+
+        <div class="price-range">
+            <!--price-range-->
+            <h2>Chọn giá</h2>
+            <div class="well text-center">
+                
+                <b class="pull-left">20000 đồng</b> => <b class="pull-right">20000000 đồng</b>
+            </div>
+        </div>
+        <!-- /price-range-->
+
+        <div class="shipping text-center">
+            <!--shipping-->
+            <img th:src="@{/assets/img/toi.JPG}" style="width: 150px; height: 250px;" />
+        </div>
+        <!--/shipping-->
+
+
+    </div>
+</div>

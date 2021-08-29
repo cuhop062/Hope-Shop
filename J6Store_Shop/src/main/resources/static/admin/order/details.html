@@ -1,0 +1,55 @@
+<div id="page-wrapper">
+<div class="panel panel-default" ng-if="items">
+    <div class="panel-heading text-center">CHI TIẾT NGƯỜI MUA HÀNG</div>
+    <table class="table table-hover">
+        <thead class="bg-info" style="font-variant: small-caps;">  
+          <tr>
+            <th scope="col">Tên</th>
+            <th scope="col">Sản phẩm</th>
+            <th scope="col">Ngày</th>
+            <th scope="col">Địa chỉ</th>
+            <th scope="col">Giá</th>
+            <th scope="col">Số lượng</th>
+            <th scope="col">Thành tiền</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in pager.items">
+            <td>{{item.product.name}}</td>
+            <td> <img width="50" src="{{'/assets/images/' + item.product.image}}"> 
+            </td>
+            <td>{{item.order.createDate | date: 'dd-MM-yyyy'}}</td>
+            <td>{{item.order.address}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.quantity}}</td>
+            <td>{{item.price * item.quantity}}</td>
+            <td>
+                <div class="btn-group btn-group-xs">
+                    <a ng-href="" class="btn btn-warning"><i class="far fa-edit"></i></a>
+                    
+            </td> 
+          </tr>
+        </tbody>
+      </table>
+      <div class="panel-footer text-center">
+          <button ng-click="pager.first()" class="btn btn-danger">
+            <i class="fas fa-hand-point-up"></i>
+          </button>
+          <button ng-click="pager.prev()" class="btn btn-success">
+            <i class="fas fa-hand-point-left"></i>
+          </button>
+          <button class="btn btn-success">
+            {{pager.page + 1}} of {{pager.count}}
+          </button>
+          <button ng-click="pager.next()" class="btn btn-success">
+            <i class="fas fa-hand-point-right"></i>
+          </button>
+          <button ng-click="pager.last()" class="btn btn-success">
+            <i class="far fa-hand-point-down"></i>
+          </button>
+      </div>
+      
+</div>
+<a ng-href="#!order" class="btn btn-success profile-button padding-right"  type="button">Danh sách</a>
+</div>

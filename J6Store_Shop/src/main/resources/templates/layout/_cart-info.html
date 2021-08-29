@@ -1,0 +1,17 @@
+<div xmlns:th="http://www.thymeleaf.org">
+    <div class="shopping-cart-wrapper col-sm-11 hidden-xs bg-light text-right">
+        <div class="cart-inner ts-tiny-cart-wrapper">
+                <div class="heading">
+                    <a th:href="@{/cart/view}">
+                        <span class="link_a">
+                            <i class="fa fa-shopping-cart"></i>
+                            <b class="hidden-md hidden-sm">Giỏ hàng:</b>
+                            <span class="ajax_cart_no_product ajax_cart_quantity">{{cart.count}} Sản phẩm</span>
+                            <span class="clear">|| Tổng:{{cart.amount | number : 2}} VND</span>
+                        </span>
+                    </a>
+                </div>
+        </div>
+        <!--Kết thúc Cart-->
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index :: dynamic(~{::main})}">
+    <body>
+        <main>
+            <table class="table mt-3">
+                <thead class="bg-info">
+                  <tr>
+                    <th scope="col">No.</th>
+                    <th scope="col">Order No</th>
+                    <th scope="col">Order Date</th>
+                    <th scope="col">Shipping Address</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="order, state: ${orders}">
+                    <th scope="row">[[${state.index}]]</th>
+                    <td><strong> [[${order.id}]]</strong></td>
+                    <td><strong> [[${order.createDate}]]</strong></td>
+                    <td><strong> [[${order.address}]]</strong></td>
+                    <td>
+                        <a th:href="@{|/order/detail/${order.id}|}" class="btn btn-info px-4 rounded-pill">
+                            <i class="fas fa-search"></i>
+                        </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="container mt-3">
+                <div id="carousel">
+                    <figure><img th:src="@{/images/dienthoai1.jpg}"></figure>
+                    <figure><img th:src="@{/images/dienthoai4.jpg}"></figure>
+                    <figure><img th:src="@{/images/dienthoai2.jpg}"></figure>
+                    <figure><img th:src="@{/images/dienthoai5.jpg}"></figure>
+                    <figure><img th:src="@{/images/dienthoai6.jpg}"></figure>
+                    <figure><img th:src="@{/images/dienthoai7.jpg}"></figure>
+                    <figure><img th:src="@{/images/dienthoai8.jpg}"></figure>
+                    <figure><img th:src="@{/images/tivi3.jpg}"></figure>
+                    <figure><img th:src="@{/images/tivi1.jpg}"></figure>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
